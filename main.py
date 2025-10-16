@@ -1,23 +1,26 @@
 from pyscript import display, document
 
-# Basic info for homepage
-restaurant = "Drive-IN/OUT"
-owner = "Joaquin Oliveros"
-year = 2000
+# Restaurant details
+restaurant_name = "Drive-IN/OUT" #STRING
+owner_name = "Joaquin Oliveros" #STRING
+year_established = 2000 #STRING
 
-menu = ["Double Cheese Burger", "Chicken Wings", "Iced Lemon Tea", "Iced Tea"]
-prices = [200, 250, 90, 80]
+# Menu and details
+menu_items = ["Double Cheese Burger", "Chicken Wings", "Iced Lemon Tea", "Iced Tea"] #LIST
+menu_prices = [200, 250, 90, 80] #LIST
+has_delivery = True #STRING
+business_hours = ["9:00 AM", "9:30 PM"] #STRING
+allergens = ["dairy", "egg", "meat"] #STRING
+tax_rate = 0.12 #STRING
 
-# Show homepage info if elements exist
-if document.querySelector("#restaurant-title"):
-    display(restaurant, target="restaurant-title")
-    display(f"owned by {owner}", target="owner-info")
-    display(f"Year established: {year}", target="year-info")
+display(f"{restaurant_name}", target='restaurant-title')
+display(f"owned by {owner_name}", target='owner-info')
+display(f"Year established:  {year_established}", target='year-info')
+display(f"Menu item: {menu_items[1]} costs ₱{menu_prices[1]}", target='menu-table')
+display(f"Menu item: {menu_items[2]} costs ₱{menu_prices[2]}", target='menu-table')
+display(f"Menu item: {menu_items[3]} costs ₱{menu_prices[3]}", target='menu-table')
+display(f"Delivery available: {has_delivery}", target='menu-table')
+display(f"Business hours: {business_hours[0]} - {business_hours[1]}", target='hours-info')
+display(f"Allergens: {', '.join(allergens)}", target='hours-info')
+display(f"Tax rate: {int(tax_rate * 100)}%", target='hours-info')
 
-    for i in range(len(menu)):
-        display(f"{menu[i]} / ₱{prices[i]}", target="menu-table")
-
-    display("Delivery available: True", target="menu-table")
-    display("Business hours: 9:00 AM - 9:30 PM", target="hours-info")
-    display("Allergens: dairy, egg, meat", target="hours-info")
-    display("Tax rate: 12%", target="hours-info")
